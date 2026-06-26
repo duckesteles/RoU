@@ -36,7 +36,7 @@ end
 
 local Window = Rayfield:CreateWindow({
     Name = "Super Striker League",
-    LoadingTitle = "Initializing...",
+    LoadingTitle = "Loading...",
     LoadingSubtitle = "by tosubmit",
     Theme = "Default",
     ConfigurationSaving = {Enabled = false},
