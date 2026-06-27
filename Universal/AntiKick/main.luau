@@ -80,25 +80,13 @@ pcall(function(): ()
 end)
 
 local function showNotification(): ()
-    local success: boolean, notiflib: any = pcall(function(): any
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/slixxywixxy/notiflib/refs/heads/main/main"))()
-    end)
-
-    if success and typeof(notiflib) == "table" then
-        pcall(notiflib.Notify, notiflib, {
+    pcall(function(): ()
+        StarterGui:SetCore("SendNotification", {
             Title = "Anti Kick",
-            Description = "Active. By tosubmit",
+            Text = "Active. by tosubmit",
             Duration = 5
         })
-    else
-        pcall(function(): ()
-            StarterGui:SetCore("SendNotification", {
-                Title = "Anti Kick",
-                Text = "Active. By tosubmit",
-                Duration = 5
-            })
-        end)
-    end
+    end)
 end
 
 showNotification()
