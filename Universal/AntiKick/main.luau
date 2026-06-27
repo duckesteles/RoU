@@ -81,7 +81,7 @@ end)
 
 local function showNotification(): ()
     local success: boolean, notiflib: any = pcall(function(): any
-        return loadstring(game:HttpGet("https://raw.githubusercontent.com/insanedude59/notiflib/main/init.lua"))()
+        return loadstring(game:HttpGet("https://raw.githubusercontent.com/slixxywixxy/notiflib/refs/heads/main/main"))()
     end)
 
     if success and typeof(notiflib) == "table" then
