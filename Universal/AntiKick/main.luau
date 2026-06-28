@@ -1,3 +1,9 @@
+--[[
+	AntiKick
+	Author: tosubmit
+	https://github.com/tosubmit/RoU
+]]
+
 if getgenv().AntiKick_Active then
 	return getgenv().AntiKick_Restore
 end
@@ -13,7 +19,7 @@ local checkcaller = checkcaller
 local newcclosure = (newcclosure or function(f) return f end)
 local getcallingscript = rawget(getfenv(), "getcallingscript")
 
-local function notify(Anti Kick, By tosubmit)
+local function notify(title, text)
 	pcall(function()
 		StarterGui:SetCore("SendNotification", {
 			Title = title,
@@ -56,6 +62,6 @@ getgenv().AntiKick_Restore = function()
 	getgenv().AntiKick_Restore = nil
 end
 
-notify("AntiKick", "Protection active")
+notify("Anti Kick", "Protection active")
 
 return getgenv().AntiKick_Restore
