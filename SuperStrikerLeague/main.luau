@@ -1,7 +1,7 @@
 --[[
 	SuperStrikerLeague
-	Author: tosubmit
-	https://github.com/tosubmit/RoU
+	Author: duckesteles
+	https://github.com/duckesteles/RoU
 ]]
 
 local success, Rayfield = pcall(function()
@@ -40,7 +40,7 @@ end
 local Window = Rayfield:CreateWindow({
     Name = "Super Striker League",
     LoadingTitle = "Loading...",
-    LoadingSubtitle = "by tosubmit",
+    LoadingSubtitle = "by duckesteles",
     Theme = "Default",
     ConfigurationSaving = {
         Enabled = false
