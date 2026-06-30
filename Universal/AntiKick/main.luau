@@ -1,7 +1,7 @@
 --[[
 	AntiKick
-	Author: tosubmit
-	https://github.com/tosubmit/RoU
+	Author: duckesteles
+	https://github.com/duckesteles/RoU
 ]]
 
 if getgenv().AntiKick_Active then
