@@ -4,14 +4,14 @@
 	https://github.com/duckesteles/RoU
 ]]
 
+local Players = game:GetService("Players")
+local StarterGui = game:GetService("StarterGui")
+local LocalPlayer = Players.LocalPlayer
+
 if getgenv().AntiKick_Active then
 	return getgenv().AntiKick_Restore
 end
 getgenv().AntiKick_Active = true
-
-local Players = game:GetService("Players")
-local StarterGui = game:GetService("StarterGui")
-local LocalPlayer = Players.LocalPlayer
 
 local hookmetamethod = hookmetamethod
 local getnamecallmethod = getnamecallmethod
@@ -48,7 +48,7 @@ OldNamecall = hookmetamethod(game, "__namecall", newcclosure(function(self, ...)
 		if method == "Kick" then
 			warn(string.format("[AntiKick] Blocked kick from: %s | Reason: %s",
 				describeCaller(), tostring((...))))
-			return task.wait(math.huge)
+			return
 		end
 	end
 	return OldNamecall(self, ...)
@@ -56,12 +56,15 @@ end))
 
 getgenv().AntiKick_Restore = function()
 	pcall(function()
-		hookmetamethod(game, "__namecall", OldNamecall)
+		if typeof(restorefunction) == "function" then
+			restorefunction(OldNamecall)
+		else
+			hookmetamethod(game, "__namecall", OldNamecall)
+		end
 	end)
 	getgenv().AntiKick_Active = false
 	getgenv().AntiKick_Restore = nil
 end
 
 notify("Anti Kick", "Protection active")
-
 return getgenv().AntiKick_Restore
